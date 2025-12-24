@@ -1,0 +1,144 @@
+{
+  "title": "PowerShell Learning Course",
+  "description": "Learn PowerShell from basics to advanced topics with interactive exercises",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "Getting Started",
+      "lessons": [
+        {
+          "id": "intro",
+          "title": "Introduction to PowerShell",
+          "file": "01-intro.md",
+          "starter": "# Welcome to PowerShell!\nWrite-Host 'Hello, PowerShell!'",
+          "exercises": [
+            {
+              "id": "hello-world",
+              "title": "Hello World",
+              "description": "Display a greeting message",
+              "starter": "# Write a command to display 'Hello, World!'\n",
+              "hint": "Use Write-Host or Write-Output to display text",
+              "solution": "Write-Host 'Hello, World!'"
+            }
+          ]
+        },
+        {
+          "id": "variables",
+          "title": "Variables and Data Types",
+          "file": "02-variables.md",
+          "starter": "$name = 'PowerShell'\nWrite-Host \"Learning $name\"",
+          "exercises": [
+            {
+              "id": "variables-basics",
+              "title": "Working with Variables",
+              "description": "Create and use variables to store data",
+              "starter": "# Create a variable $age and set it to 25\n# Then display: 'I am X years old'\n",
+              "hint": "Use $variableName = value to create variables. Use double quotes for string interpolation.",
+              "solution": "$age = 25\nWrite-Host \"I am $age years old\""
+            },
+            {
+              "id": "math-operations",
+              "title": "Math Operations",
+              "description": "Perform basic calculations",
+              "starter": "# Calculate the sum of 10 and 20\n",
+              "hint": "PowerShell supports +, -, *, / operators",
+              "solution": "$sum = 10 + 20\nWrite-Host \"Sum: $sum\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intermediate",
+      "title": "Core Concepts",
+      "lessons": [
+        {
+          "id": "pipelines",
+          "title": "Pipelines and Objects",
+          "file": "03-pipelines.md",
+          "starter": "Get-Process | Select-Object -First 3 Name, CPU",
+          "exercises": [
+            {
+              "id": "pipeline-basics",
+              "title": "Using Pipelines",
+              "description": "Filter and process objects through the pipeline",
+              "starter": "# Get the first 5 files in the current directory\n# Sort them by name\n",
+              "hint": "Use Get-ChildItem | Sort-Object | Select-Object -First 5",
+              "solution": "Get-ChildItem | Sort-Object Name | Select-Object -First 5"
+            }
+          ]
+        },
+        {
+          "id": "functions",
+          "title": "Functions",
+          "file": "04-functions.md",
+          "starter": "function Get-Greeting {\n    param($Name)\n    \"Hello, $Name!\"\n}\nGet-Greeting -Name 'PowerShell'",
+          "exercises": [
+            {
+              "id": "create-function",
+              "title": "Create a Function",
+              "description": "Define and use a custom function",
+              "starter": "# Create a function Add-Numbers that takes two parameters\n# and returns their sum\n",
+              "hint": "Use function Name { param($x, $y) ... }",
+              "solution": "function Add-Numbers {\n    param($x, $y)\n    return $x + $y\n}\nAdd-Numbers -x 5 -y 10"
+            }
+          ]
+        },
+        {
+          "id": "error-handling",
+          "title": "Error Handling",
+          "file": "05-error-handling.md",
+          "starter": "try {\n    Get-Item 'nonexistent.txt'\n} catch {\n    Write-Host \"Error: $_\"\n}",
+          "exercises": [
+            {
+              "id": "try-catch",
+              "title": "Handle Errors",
+              "description": "Use try-catch to handle errors gracefully",
+              "starter": "# Try to divide 10 by 0 and catch the error\n",
+              "hint": "Use try { ... } catch { Write-Host $_.Exception.Message }",
+              "solution": "try {\n    $result = 10 / 0\n} catch {\n    Write-Host \"Error: $($_.Exception.Message)\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "title": "Advanced Topics",
+      "lessons": [
+        {
+          "id": "files",
+          "title": "Working with Files and JSON",
+          "file": "06-files-json.md",
+          "starter": "$data = @{ Name = 'PowerShell'; Version = '7.0' }\n$data | ConvertTo-Json",
+          "exercises": [
+            {
+              "id": "json-conversion",
+              "title": "JSON Conversion",
+              "description": "Convert data to and from JSON",
+              "starter": "# Create a hashtable with keys 'City' and 'Country'\n# Convert it to JSON\n",
+              "hint": "Use @{} to create hashtables and ConvertTo-Json to convert",
+              "solution": "$location = @{ City = 'Seattle'; Country = 'USA' }\n$location | ConvertTo-Json"
+            }
+          ]
+        },
+        {
+          "id": "rest-api",
+          "title": "REST API Calls",
+          "file": "07-rest-api.md",
+          "starter": "$response = Invoke-RestMethod -Uri 'https://api.github.com/users/github'\n$response.name",
+          "exercises": [
+            {
+              "id": "api-call",
+              "title": "Make an API Call",
+              "description": "Fetch data from a REST API",
+              "starter": "# Call the JSONPlaceholder API to get a todo item\n# URL: https://jsonplaceholder.typicode.com/todos/1\n",
+              "hint": "Use Invoke-RestMethod -Uri <url>",
+              "solution": "$todo = Invoke-RestMethod -Uri 'https://jsonplaceholder.typicode.com/todos/1'\nWrite-Host \"Title: $($todo.title)\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
