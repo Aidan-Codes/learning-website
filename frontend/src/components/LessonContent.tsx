@@ -54,7 +54,7 @@ export default function LessonContent({ lessonFile }: LessonContentProps) {
       <ReactMarkdown 
         remarkPlugins={[remarkGfm]}
         components={{
-          code: ({ node, inline, className, children, ...props }: any) => {
+          code: ({ inline, className, children, ...props }) => {
             return inline ? (
               <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm" {...props}>
                 {children}

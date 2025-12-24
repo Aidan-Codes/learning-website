@@ -1,4 +1,4 @@
-import { LessonProgress } from '../types';
+import type { LessonProgress } from '../types';
 
 const PROGRESS_KEY = 'powershell-learning-progress';
 

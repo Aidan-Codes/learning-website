@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Exercise } from '../types';
+import type { Exercise } from '../types';
 import { isExerciseComplete } from '../utils/progress';
 
 interface ExerciseListProps {

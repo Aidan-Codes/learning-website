@@ -1,4 +1,5 @@
-import { Theme, setTheme } from '../utils/theme';
+import type { Theme } from '../utils/theme';
+import { setTheme } from '../utils/theme';
 
 interface ThemeToggleProps {
   theme: Theme;

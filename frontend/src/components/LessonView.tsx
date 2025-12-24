@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Lesson, ExecutionResult } from '../types';
+import type { Lesson, ExecutionResult } from '../types';
 import LessonContent from './LessonContent';
 import ExerciseList from './ExerciseList';
 import CodeEditor from './CodeEditor';
 import OutputPane from './OutputPane';
-import { Theme } from '../utils/theme';
+import type { Theme } from '../utils/theme';
 import { markLessonComplete } from '../utils/progress';
 
 interface LessonViewProps {
@@ -54,7 +54,7 @@ export default function LessonView({ lesson, theme, apiUrl }: LessonViewProps) {
     }
   };
 
-  const handleExerciseSelect = (exercise: any) => {
+  const handleExerciseSelect = (exercise: { starter: string }) => {
     setCode(exercise.starter);
     setResult(null);
     setActiveTab('editor');

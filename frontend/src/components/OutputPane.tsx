@@ -1,4 +1,4 @@
-import { ExecutionResult } from '../types';
+import type { ExecutionResult } from '../types';
 
 interface OutputPaneProps {
   result: ExecutionResult | null;

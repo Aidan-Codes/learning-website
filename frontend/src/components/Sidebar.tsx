@@ -1,4 +1,4 @@
-import { Section, Lesson } from '../types';
+import type { Section, Lesson } from '../types';
 import { isLessonComplete } from '../utils/progress';
 
 interface SidebarProps {

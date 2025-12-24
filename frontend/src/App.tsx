@@ -3,8 +3,9 @@ import Sidebar from './components/Sidebar';
 import HomePage from './components/HomePage';
 import LessonView from './components/LessonView';
 import ThemeToggle from './components/ThemeToggle';
-import { Manifest, Lesson } from './types';
-import { Theme, initTheme, getTheme } from './utils/theme';
+import type { Manifest, Lesson } from './types';
+import type { Theme } from './utils/theme';
+import { initTheme, getTheme } from './utils/theme';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:7071/api';
 
