@@ -60,7 +60,7 @@ Add custom headers to requests:
 
 ```powershell
 $headers = @{
-    "Authorization" = "Bearer your-token-here"
+    "Authorization" = "Bearer <YOUR_TOKEN_HERE>"
     "Accept" = "application/json"
 }
 
@@ -132,7 +132,7 @@ $response = Invoke-RestMethod -Uri "https://api.example.com/data" -Headers $head
 
 ### Bearer Token
 ```powershell
-$token = "your-api-token"
+$token = "<YOUR_API_TOKEN>"
 $headers = @{
     "Authorization" = "Bearer $token"
 }
