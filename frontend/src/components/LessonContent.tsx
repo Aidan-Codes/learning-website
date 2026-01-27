@@ -15,7 +15,7 @@ export default function LessonContent({ lessonFile }: LessonContentProps) {
     const loadLesson = async () => {
       setLoading(true);
       setError(null);
-      
+
       try {
         const response = await fetch(`/content/lessons/${lessonFile}`);
         if (!response.ok) {
@@ -51,20 +51,28 @@ export default function LessonContent({ lessonFile }: LessonContentProps) {
 
   return (
     <div className="prose prose-sm dark:prose-invert max-w-none p-6 overflow-y-auto h-full">
-      <ReactMarkdown 
+      <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          code: ({ inline, className, children, ...props }) => {
-            return inline ? (
-              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm" {...props}>
+          code: ({ className, children, ...props }) => {
+            const isInline = !className;
+
+            return isInline ? (
+              <code
+                className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm"
+                {...props}
+              >
                 {children}
               </code>
             ) : (
-              <code className={`${className} block bg-gray-100 dark:bg-gray-800 p-3 rounded overflow-x-auto`} {...props}>
+              <code
+                className={`${className} block bg-gray-100 dark:bg-gray-800 p-3 rounded overflow-x-auto`}
+                {...props}
+              >
                 {children}
               </code>
             );
-          }
+          },
         }}
       >
         {content}
